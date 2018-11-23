@@ -26,8 +26,9 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "byebug", "~> 9.0"
 
-  spec.add_dependency "savon", "~> 2.7.2"
-  spec.add_dependency "savon-multipart", "~> 2.0"
+  # Manually add this GEM from forked repo 
+  #spec.add_dependency "savon", "~> 2.7.2"
+  #spec.add_dependency "savon-multipart", "~> 2.0"
 
   # Hash#dig is usedbu
   spec.required_ruby_version = '>= 2.2.2'
