@@ -30,5 +30,5 @@ Gem::Specification.new do |spec|
   spec.add_dependency "savon-multipart", "~> 2.0"
 
   # Hash#dig is usedbu
-  spec.required_ruby_version = '>= 2.3.0'
+  spec.required_ruby_version = '>= 2.2.2'
 end
