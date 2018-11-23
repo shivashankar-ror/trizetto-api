@@ -49,6 +49,13 @@ module Trizetto
         def payer_list
           @client.call(:get_xml_payer_list, message: {})
         end
+        
+        def formatted_payer_list
+          resp = @client.call(:get_xml_payer_list, message: {})
+          if resp.body.dig(:get_xml_payer_list_response).present?
+            Hash.from_xml(resp.body.dig(:get_xml_payer_list_response, :get_xml_payer_list_result))
+          end
+        end
 
         # Retrieves the HTTP location of payer enrollment forms for eligibility.
         def doc_links(pid)
