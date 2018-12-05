@@ -115,7 +115,7 @@ module Trizetto
           # * {http://www.x12.org/codes/health-care-service-type-codes/ Service Type Codes}
           #
           # @return DoInquiryResponse
-          def do_inquiry(parameters={})
+          def do_inquiry(parameters={}, raw_response=false)
             savon_response = @client.call( :do_inquiry, message: { 'Inquiry': {
               'ResponseDataType': 'Xml',
               'Parameters': {
@@ -124,6 +124,7 @@ module Trizetto
                  }
               }
             }})
+            return savon_response.body if raw_response
             DoInquiryResponse.new(savon_response.body, savon_response.to_xml)
           end
 
