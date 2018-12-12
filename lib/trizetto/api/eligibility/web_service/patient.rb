@@ -51,13 +51,15 @@ module Trizetto
               end
             end
 
+            self.additional_info = []
+
             if self.subscriberaddinfo.is_a?(Hash)
               self.subscriberaddinfo = [self.subscriberaddinfo]
+              
+              self.additional_info = self.subscriberaddinfo.map do |additional_info_hash|
+                AdditionalInfo.new(additional_info_hash)
+              end || []
             end
-
-            self.additional_info = self.subscriberaddinfo.map do |additional_info_hash|
-              AdditionalInfo.new(additional_info_hash)
-            end || []
           end
 
           # Looks in the additional info returned with the patient for a group number
